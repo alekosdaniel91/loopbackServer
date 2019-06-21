@@ -1,0 +1,67 @@
+{
+  "name": "ContactInfo_TB",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "UserId": {
+      "type": "number",
+      "required": true
+    },
+    "Address": {
+      "type": "string"
+    },
+    "CountryID": {
+      "type": "number",
+      "required": true
+    },
+    "City": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "number",
+      "required": true
+    },
+    "Celphone": {
+      "type": "number",
+      "required": true
+    },
+    "EmergencyName": {
+      "type": "string",
+      "required": true
+    },
+    "EmergencyPhone": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userApp": {
+      "type": "belongsTo",
+      "model": "UserApp",
+      "foreignKey": "UserId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
